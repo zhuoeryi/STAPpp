@@ -66,6 +66,10 @@ void CElementGroup::CalculateMemberSize()
             ElementSize_ = sizeof(CBar);
             MaterialSize_ = sizeof(CBarMaterial);
             break;
+        case ElementTypes::Plate:
+            ElementSize_ = sizeof(CPlate);
+            MaterialSize_ = sizeof(CPlateMaterial);
+            break;
         default:
             std::cerr << "Type " << ElementType_ << " not available. See CElementGroup::CalculateMemberSize." << std::endl;
             exit(5);
@@ -81,6 +85,9 @@ void CElementGroup::AllocateElements(std::size_t size)
         case ElementTypes::Bar:
             ElementList_ = new CBar[size];
             break;
+        case ElementTypes::Plate:
+            ElementList_ = new CPlate[size];
+            break;
         default:
             std::cerr << "Type " << ElementType_ << " not available. See CElementGroup::AllocateElement." << std::endl;
             exit(5);
@@ -95,6 +102,9 @@ void CElementGroup::AllocateMaterials(std::size_t size)
         case ElementTypes::Bar:
             MaterialList_ = new CBarMaterial[size];
             break;
+        case ElementTypes::Plate:
+            MaterialList_ = new CPlateMaterial[size];
+            break;
         default:
             std::cerr << "Type " << ElementType_ << " not available. See CElementGroup::AllocateMaterial." << std::endl;
             exit(5);
@@ -104,6 +114,7 @@ void CElementGroup::AllocateMaterials(std::size_t size)
 //! Read element group data from stream Input
 bool CElementGroup::Read(ifstream& Input)
 {
+    //ÖáÁ¦¸ËElementType_=1£¬°åµ¥ÔªElementType_=6
     Input >> (int&)ElementType_ >> NUME_ >> NUMMAT_;
     
     CalculateMemberSize();

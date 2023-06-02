@@ -38,13 +38,22 @@ bool CLoadCaseData :: Read(ifstream& Input)
 	unsigned int NL;
 
 	Input >> NL;
-
+//如果NL=0，则施加均布载荷，否则施加集中载荷，默认垂直于板方向，沿z方向为正
+	if (NL == 0)
+	{
+		p= new double;
+		Input >> *p;
+		return true;
+	}
+	else
+	{
 	Allocate(NL);
 
 	for (unsigned int i = 0; i < NL; i++)
 		Input >> node[i] >> dof[i] >> load[i];
 
 	return true;
+	}
 }
 
 //	Write load case data to stream

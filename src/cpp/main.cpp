@@ -101,7 +101,7 @@ int main(int argc, char *argv[])
         Output->OutputNodalDisplacement();
 
 //      Calculate and output stresses of all elements
-        Output->OutputElementStress();
+       // Output->OutputElementStress();
     }
 
     double time_solution = timer.ElapsedTime();

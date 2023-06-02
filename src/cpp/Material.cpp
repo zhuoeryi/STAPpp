@@ -31,3 +31,19 @@ void CBarMaterial::Write(COutputter& output)
 {
 	output << setw(16) << E << setw(16) << Area << endl;
 }
+
+
+bool CPlateMaterial::Read(ifstream& Input)
+{
+	Input >> nset;	// Number of property set
+
+	Input >> E >> v >> h;	// Young's modulus and section area
+
+	return true;
+}
+
+//	Write material data to Stream
+void CPlateMaterial::Write(COutputter& output)
+{
+	output << setw(16) << E << setw(16) << v << setw(16) << h << endl;
+}
