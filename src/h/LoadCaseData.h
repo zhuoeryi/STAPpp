@@ -23,6 +23,7 @@ public:
 	unsigned int* node;		//!< Node number to which this load is applied
 	unsigned int* dof;		//!< Degree of freedom number for this load component
 	double* load;			//!< Magnitude of load
+	double* p;
 
 public:
 

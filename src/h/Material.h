@@ -24,6 +24,8 @@ public:
 	
 	double E;  //!< Young's modulus
 
+	
+
 public:
 
 //! Virtual deconstructor
@@ -43,6 +45,26 @@ class CBarMaterial : public CMaterial
 public:
 
 	double Area;	//!< Sectional area of a bar element
+
+public:
+	
+//!	Read material data from stream Input
+	virtual bool Read(ifstream& Input);
+
+//!	Write material data to Stream
+	virtual void Write(COutputter& output);
+};
+
+class CPlateMaterial : public CMaterial
+{
+public:
+
+
+    double v;  //!< Poisson's ratio
+    double h;  //!< Thickness
+	
+
+	
 
 public:
 	

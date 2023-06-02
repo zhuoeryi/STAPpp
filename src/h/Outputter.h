@@ -53,8 +53,10 @@ public:
 //!	Output element data
 	void OutputElementInfo();
 
-//!	Output bar element data
+//!	Output barelement data
 	void OutputBarElements(unsigned int EleGrp);
+//!	Output Plateelement data
+	void OutputPlateElements(unsigned int EleGrp);
 
 //!	Output load data 
 	void OutputLoadInfo(); 
